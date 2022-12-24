@@ -1,0 +1,12 @@
+{
+  "name": "udemy-angular-sample",
+  "version": "1.0.0",
+  "scripts": {
+    "ng": "ng",
+    "new": "ng new sample-workspace"
+  },
+  "private": true,
+  "devDependencies": {
+    "@angular/cli": "^15.0.4"
+  }
+}
