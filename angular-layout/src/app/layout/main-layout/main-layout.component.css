@@ -1,0 +1,23 @@
+.bd-layout {
+  display: grid;
+  grid-template-areas: "sidebar main";
+  grid-template-columns: 200px calc(100% - 200px); /* `${sideWidth}px calc(100% - ${sideWidth}px)` */
+}
+
+.bd-sidebar {
+  grid-area: sidebar;
+}
+
+.bd-sidebar {
+  position: sticky;
+  position: -webkit-sticky; /* Safari用 */
+  display: block!important;
+  top: 100px; /* headの高さ */
+  height: calc(100vh - 100px - 100px); /* 100vh - headの高さ - footの高さ */
+  overflow-y: auto;
+}
+
+.bd-main {
+  grid-area: main;
+  margin-bottom: 100px; /* footの高さ */
+}

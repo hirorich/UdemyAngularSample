@@ -19,16 +19,14 @@
 <div class="sticky-top">
   <ng-container *ngTemplateOutlet="head"></ng-container>
 </div>
-<div class="d-inline-flex" style="width: 100%;">
-  <div class="overflow-auto" style="width: 200px; height: 100%;">
+<div class="bd-layout">
+  <div class="bd-sidebar">
     <ng-container *ngTemplateOutlet="side"></ng-container>
   </div>
-  <div class="overflow-auto" style="width: calc(100% - 200px);">
+  <div class="bd-main">
     <ng-container *ngTemplateOutlet="main"></ng-container>
   </div>
 </div>
-<!--
 <div class="fixed-bottom">
   <ng-container *ngTemplateOutlet="foot"></ng-container>
 </div>
--->

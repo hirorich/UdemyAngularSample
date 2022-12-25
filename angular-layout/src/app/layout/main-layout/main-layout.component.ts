@@ -25,8 +25,8 @@ export class MainLayoutComponent implements AfterViewInit {
     let elSide: HTMLElement = <HTMLElement> elContent.children[0];
     let elMain: HTMLElement = <HTMLElement> elContent.children[1];
 
-    let observable = this.resizeObserverService.createHeightResizeObservable(elHead);
-    observable.subscribe((val) => this.setContentHeight(elContent, val));
+    //let observable = this.resizeObserverService.createHeightResizeObservable(elHead);
+    //observable.subscribe((val) => this.setContentHeight(elContent, val));
   }
 
   private setContentHeight(elContent: HTMLElement, headerHeight: number): void {
