@@ -6,9 +6,7 @@
 
 .bd-sidebar {
   grid-area: sidebar;
-}
 
-.bd-sidebar {
   position: sticky;
   position: -webkit-sticky; /* Safari用 */
   display: block!important;
@@ -19,5 +17,6 @@
 
 .bd-main {
   grid-area: main;
+
   margin-bottom: 100px; /* footの高さ */
 }
