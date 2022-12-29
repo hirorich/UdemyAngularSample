@@ -8,11 +8,6 @@ type BoxSize = {
 }
 
 /**
- * サイズ変更監視を間引く時間(ms)
- */
-const DEBOUNCE_TIME: number = 500;
-
-/**
  * HTML要素のサイズ変更監視サービス
  */
 @Injectable({
@@ -44,7 +39,7 @@ export class ResizeObserverService {
         subject.next(result);
       });
       observer.observe(el);
-    }).pipe(debounceTime(DEBOUNCE_TIME));
+    });
   }
 
   /**

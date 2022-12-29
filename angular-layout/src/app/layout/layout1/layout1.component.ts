@@ -17,7 +17,6 @@ export class Layout1Component implements AfterViewInit {
   }
   private _sideWidth: number = 0;
 
-  private el: ElementRef;
   private elHead: HTMLElement | undefined;
   private elContent: HTMLElement | undefined;
   private elSide: HTMLElement | undefined;
@@ -29,9 +28,8 @@ export class Layout1Component implements AfterViewInit {
 
   constructor(
     private resizeObserverService: ResizeObserverService,
-    el: ElementRef
+    private el: ElementRef
   ) {
-    this.el = el;
   }
 
   ngAfterViewInit(): void {

@@ -3,23 +3,17 @@ import { CommonModule } from '@angular/common';
 import { ResizeObserverService } from 'src/app/service/resize-observer.service';
 
 @Component({
-  selector: 'app-layout3',
+  selector: 'app-layout4',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './layout3.component.html',
-  styleUrls: ['./layout3.component.css']
+  templateUrl: './layout4.component.html',
+  styleUrls: ['./layout4.component.css']
 })
-export class Layout3Component implements AfterViewInit {
+export class Layout4Component implements AfterViewInit {
 
   @HostBinding('style.--side-width.px')
   @Input()
   sideWidth: number = 0;
-
-  @HostBinding('style.--height-head.px')
-  heightHead: number = 0;
-
-  @HostBinding('style.--height-foot.px')
-  heightFoot: number = 0;
 
   constructor(
     private resizeObserverService: ResizeObserverService,
@@ -32,10 +26,10 @@ export class Layout3Component implements AfterViewInit {
     let elFoot: HTMLElement = <HTMLElement> this.el.nativeElement.children[2];
 
     this.resizeObserverService.createHeightResizeObservable(<HTMLElement> elHead).subscribe((val) => {
-      this.heightHead = val;
+      this.el.nativeElement.style.setProperty('--height-head', `${val}px`);
     });
     this.resizeObserverService.createHeightResizeObservable(<HTMLElement> elFoot).subscribe((val) => {
-      this.heightFoot = val;
+      this.el.nativeElement.style.setProperty('--height-foot', `${val}px`);
     })
   }
 

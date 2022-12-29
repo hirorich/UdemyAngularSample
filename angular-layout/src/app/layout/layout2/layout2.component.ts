@@ -13,8 +13,6 @@ export class Layout2Component implements AfterViewInit {
 
   @Input() sideWidth: number = 0;
 
-  private el: ElementRef;
-
   private heightHead: number = 0;
   private heightFoot: number = 0;
 
@@ -33,9 +31,8 @@ export class Layout2Component implements AfterViewInit {
 
   constructor(
     private resizeObserverService: ResizeObserverService,
-    el: ElementRef
+    private el: ElementRef
   ) {
-    this.el = el;
   }
 
   ngAfterViewInit(): void {
