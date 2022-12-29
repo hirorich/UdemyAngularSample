@@ -1,13 +1,16 @@
 import { AfterViewInit, Component, ElementRef, Input, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { of } from 'rxjs';
 import { ResizeObserverService } from 'src/app/service/resize-observer.service';
 
 @Component({
-  selector: 'app-main-layout',
-  templateUrl: './main-layout.component.html',
-  styleUrls: ['./main-layout.component.css']
+  selector: 'app-layout1',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './layout1.component.html',
+  styleUrls: ['./layout1.component.css']
 })
-export class MainLayoutComponent implements AfterViewInit {
+export class Layout1Component implements AfterViewInit {
 
   @Input() sideWidth: number = 0;
 

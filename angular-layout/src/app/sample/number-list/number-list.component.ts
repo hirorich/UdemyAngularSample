@@ -1,7 +1,10 @@
-import { AfterViewInit, Component, ElementRef, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-number-list',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './number-list.component.html',
   styleUrls: ['./number-list.component.css']
 })

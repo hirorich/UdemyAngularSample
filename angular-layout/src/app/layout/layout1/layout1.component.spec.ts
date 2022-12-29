@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NumberListComponent } from './number-list.component';
+import { Layout1Component } from './layout1.component';
 
-describe('NumberListComponent', () => {
-  let component: NumberListComponent;
-  let fixture: ComponentFixture<NumberListComponent>;
+describe('Layout1Component', () => {
+  let component: Layout1Component;
+  let fixture: ComponentFixture<Layout1Component>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ NumberListComponent ]
+      imports: [ Layout1Component ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(NumberListComponent);
+    fixture = TestBed.createComponent(Layout1Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
