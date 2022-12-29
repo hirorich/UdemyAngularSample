@@ -1,0 +1,18 @@
+.bd-layout {
+  display: grid;
+  grid-template-areas: "sidebar main";
+  grid-template-columns: var(--side-width) calc(100% - var(--side-width)); /* `${sideWidth}px calc(100% - ${sideWidth}px)` */
+}
+
+.bd-sidebar {
+  position: sticky;
+  position: -webkit-sticky; /* Safari用 */
+  display: block!important;
+  top: var(--height-head); /* headの高さ */
+  height: calc(100vh - var(--height-head) - var(--height-foot)); /* 100vh - headの高さ - footの高さ */
+  overflow-y: auto;
+}
+
+.bd-main {
+  margin-bottom: var(--height-foot); /* footの高さ */
+}

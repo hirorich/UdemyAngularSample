@@ -1,0 +1,32 @@
+<ng-template #head>
+  <ng-content select="[head]"></ng-content>
+</ng-template>
+
+<ng-template #side>
+  <ng-content select="[side]"></ng-content>
+</ng-template>
+
+<ng-template #main>
+  <ng-content select="[main]"></ng-content>
+</ng-template>
+
+<ng-template #foot>
+  <ng-content select="[foot]"></ng-content>
+</ng-template>
+
+
+
+<div class="sticky-top">
+  <ng-container *ngTemplateOutlet="head"></ng-container>
+</div>
+<div class="bd-layout">
+  <div class="bd-sidebar">
+    <ng-container *ngTemplateOutlet="side"></ng-container>
+  </div>
+  <div class="bd-main">
+    <ng-container *ngTemplateOutlet="main"></ng-container>
+  </div>
+</div>
+<div class="fixed-bottom">
+  <ng-container *ngTemplateOutlet="foot"></ng-container>
+</div>
