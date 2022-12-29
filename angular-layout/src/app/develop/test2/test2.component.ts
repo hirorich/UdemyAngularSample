@@ -2,21 +2,21 @@ import { FormsModule } from '@angular/forms';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NumberListComponent } from 'src/app/sample/number-list/number-list.component';
-import { Layout1Component } from 'src/app/layout/layout1/layout1.component';
+import { Layout2Component } from 'src/app/layout/layout2/layout2.component';
 
 @Component({
-  selector: 'app-test1',
+  selector: 'app-test2',
   standalone: true,
   imports: [
     CommonModule,
     FormsModule,
     NumberListComponent,
-    Layout1Component
+    Layout2Component
   ],
-  templateUrl: './test1.component.html',
-  styleUrls: ['./test1.component.css']
+  templateUrl: './test2.component.html',
+  styleUrls: ['./test2.component.css']
 })
-export class Test1Component {
+export class Test2Component {
 
   sideWidth: number = 200;
 

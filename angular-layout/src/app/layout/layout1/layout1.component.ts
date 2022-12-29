@@ -1,6 +1,5 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { of } from 'rxjs';
 import { ResizeObserverService } from 'src/app/service/resize-observer.service';
 
 @Component({
@@ -12,7 +11,11 @@ import { ResizeObserverService } from 'src/app/service/resize-observer.service';
 })
 export class Layout1Component implements AfterViewInit {
 
-  @Input() sideWidth: number = 0;
+  @Input() set sideWidth(val: number) {
+    this._sideWidth = val;
+    this.configContent();
+  }
+  private _sideWidth: number = 0;
 
   private el: ElementRef;
   private elHead: HTMLElement | undefined;
@@ -38,7 +41,6 @@ export class Layout1Component implements AfterViewInit {
     this.elMain = <HTMLElement> this.elContent.children[1];
     this.elFoot = <HTMLElement> this.el.nativeElement.children[2];
 
-    of(this.sideWidth).subscribe((val) => this.configContent());
     this.resizeObserverService.createHeightResizeObservable(<HTMLElement> this.elHead).subscribe((val) => {
       this.heightHead = val;
       this.configSide();
@@ -52,7 +54,7 @@ export class Layout1Component implements AfterViewInit {
 
   private configContent(): void {
     let el: HTMLElement = <HTMLElement> this.elContent;
-    el.style.gridTemplateColumns = `${this.sideWidth}px calc(100% - ${this.sideWidth}px)`;
+    el.style.gridTemplateColumns = `${this._sideWidth}px calc(100% - ${this._sideWidth}px)`;
   }
 
   private configSide(): void {
