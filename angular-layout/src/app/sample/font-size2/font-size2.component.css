@@ -1,0 +1,8 @@
+.fs-outer {
+  font-size: var(--font-size);
+}
+
+.fs-inner {
+  border: solid;
+  margin: 2em;
+}

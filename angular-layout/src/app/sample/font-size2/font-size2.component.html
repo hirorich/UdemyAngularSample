@@ -1,0 +1,12 @@
+<ng-template #inner>
+  <ng-content></ng-content>
+</ng-template>
+
+<div>
+  <div class="fs-outer">font-size</div>
+  <input type="number" [(ngModel)]="value" (ngModelChange)="bindCssCustomProp($event)"  min=10 max=60>
+  <label>{{ fontSize }}</label>
+  <div class="fs-inner">
+    <ng-container *ngTemplateOutlet="inner"></ng-container>
+  </div>
+</div>
