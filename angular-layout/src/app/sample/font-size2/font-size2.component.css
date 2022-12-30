@@ -1,3 +1,7 @@
+:host {
+  --font-size: 30px;
+}
+
 .fs-outer {
   font-size: var(--font-size);
 }
