@@ -1,0 +1,14 @@
+<div class="sticky-top">
+  <ng-content select="[head]"></ng-content>
+</div>
+<div class="bd-layout">
+  <div class="bd-sidebar">
+    <ng-content select="[side]"></ng-content>
+  </div>
+  <div class="bd-main">
+    <ng-content select="[main]"></ng-content>
+  </div>
+</div>
+<div class="fixed-bottom">
+  <ng-content select="[foot]"></ng-content>
+</div>
