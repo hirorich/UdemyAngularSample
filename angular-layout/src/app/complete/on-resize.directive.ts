@@ -1,9 +1,10 @@
 import { AfterViewInit, Directive, ElementRef, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { Subject } from 'rxjs';
 
 /**
  * 監視要素のサイズ
  */
-export type BoxSize = {
+export type BorderBoxSize = {
   width: number,
   height: number
 }
@@ -21,7 +22,7 @@ export class OnResizeDirective implements OnInit, AfterViewInit, OnDestroy {
    * 要素のリサイズイベント
    */
   @Output()
-  onResize: EventEmitter<BoxSize> = new EventEmitter();
+  onResize = new EventEmitter<BorderBoxSize>();
 
   /**
    * ResizeObserver
@@ -29,6 +30,11 @@ export class OnResizeDirective implements OnInit, AfterViewInit, OnDestroy {
    *     https://developer.mozilla.org/ja/docs/Web/API/ResizeObserver
    */
   private resizeObserver: ResizeObserver | undefined = undefined;
+
+  /**
+   * 監視結果通知用
+   */
+  private subject = new Subject<BorderBoxSize>();
 
   constructor(
     private el: ElementRef
@@ -39,6 +45,10 @@ export class OnResizeDirective implements OnInit, AfterViewInit, OnDestroy {
    * 監視設定
    */
   ngOnInit(): void {
+    // Subjectの設定
+    this.subject.subscribe((val) => {this.onResize.emit(val)});
+
+    // ResizeObserverの設定
     this.resizeObserver = new ResizeObserver((entries: ResizeObserverEntry[] ) => {
       if (entries === undefined || entries.length === 0) return;
       let entry: ResizeObserverEntry = entries[0];
@@ -47,11 +57,11 @@ export class OnResizeDirective implements OnInit, AfterViewInit, OnDestroy {
       let borderBoxSize: ResizeObserverSize = entry.borderBoxSize[0];
 
       if (borderBoxSize === undefined) return;
-      let result: BoxSize = {
+      let result: BorderBoxSize = {
         width: borderBoxSize.inlineSize,
         height: borderBoxSize.blockSize
       };
-      this.onResize.emit(result);
+      this.subject.next(result);
     });
   }
 
@@ -71,5 +81,6 @@ export class OnResizeDirective implements OnInit, AfterViewInit, OnDestroy {
     if (this.resizeObserver !== undefined) {
       this.resizeObserver.disconnect();
     }
+    this.subject.unsubscribe();
   }
 }
