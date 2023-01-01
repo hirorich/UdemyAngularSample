@@ -2,17 +2,31 @@
   display: grid;
   grid-template-areas: "sidebar main";
   grid-template-columns: var(--side-width) calc(100% - var(--side-width)); /* `${sideWidth}px calc(100% - ${sideWidth}px)` */
+  margin-bottom: var(--height-foot); /* footの高さ */
 }
 
 .bd-sidebar {
+  grid-area: sidebar;
   position: sticky;
   position: -webkit-sticky; /* Safari用 */
-  display: block!important;
+  display: block;
   top: var(--height-head); /* headの高さ */
   height: calc(100vh - var(--height-head) - var(--height-foot)); /* 100vh - headの高さ - footの高さ */
   overflow-y: auto;
 }
 
 .bd-main {
-  margin-bottom: var(--height-foot); /* footの高さ */
+  grid-area: main;
+}
+
+@media screen and (max-width: 767px) {
+  /* スクリーンサイズが767px以下の場合に適用 */
+  .bd-layout {
+    grid-template-areas: "main";
+    grid-template-columns: 100%;
+  }
+
+  .bd-sidebar {
+    display: none;
+  }
 }
