@@ -1,4 +1,4 @@
-<div class="sticky-top">
+<div appOnResize class="sticky-top" (onResize)="onResizeHead($event)">
   <ng-content select="[head]"></ng-content>
 </div>
 <div class="bd-layout">
@@ -9,6 +9,6 @@
     <ng-content select="[main]"></ng-content>
   </div>
 </div>
-<div class="fixed-bottom">
+<div appOnResize class="fixed-bottom" (onResize)="onResizeFoot($event)">
   <ng-content select="[foot]"></ng-content>
 </div>

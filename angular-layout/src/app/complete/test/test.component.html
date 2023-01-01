@@ -1,5 +1,5 @@
 <ng-template #head>
-  <div appOnResize style="background-color: green; color: white;" (onResize)="onResizeHead($event)">
+  <div style="background-color: green; color: white;">
     <div>head</div>
     <app-number-list [listLength]=4></app-number-list>
     <input type="range" class="w-100 form-control-range" [(ngModel)]="sideWidth" max=500>
@@ -25,13 +25,13 @@
 </ng-template>
 
 <ng-template #foot>
-  <div appOnResize style="background-color: green; color: white;" (onResize)="onResizeFoot($event)">
+  <div style="background-color: green; color: white;">
     <div>foot</div>
     <app-number-list [listLength]=3></app-number-list>
   </div>
 </ng-template>
 
-<app-layout [sideWidth]="sideWidth" [heightHead]="heightHead" [heightFoot]="heightFoot">
+<app-layout [sideWidth]="sideWidth">
   <ng-container head *ngTemplateOutlet="head"></ng-container>
   <ng-container side *ngTemplateOutlet="side"></ng-container>
   <ng-container main *ngTemplateOutlet="main"></ng-container>
